@@ -1,4 +1,4 @@
-package Transpositer;
+package tsvTranspositer;
 
 public class OutputFile extends InOutFile {
 

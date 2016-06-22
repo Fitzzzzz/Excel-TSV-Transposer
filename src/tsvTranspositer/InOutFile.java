@@ -1,4 +1,4 @@
-package Transpositer;
+package tsvTranspositer;
 
 public class InOutFile {
 
@@ -38,5 +38,7 @@ private String name;
 		this.name = name;
 		this.currentLine = 1;
 	}
-	
+	public void incrLine() {
+		setCurrentLine(getCurrentLine() + 1);
+	}
 }
