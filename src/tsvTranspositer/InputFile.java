@@ -33,7 +33,7 @@ public class InputFile extends InOutFile {
 	@SuppressWarnings("finally")
 	public String[] readLine() {
 		
-		System.out.println("Tentative de lecture de la ligne " + getCurrentLine());
+		System.out.println("Tentative de lecture de la ligne " + getCurrentLine()); // TODO : To be removed once testing done
 		String[] row = null;
 		try (FileReader fr = new FileReader(getName());
 				CSVReader reader = new CSVReader(fr, '\t', '\'', getCurrentLine() - 1);)
@@ -46,7 +46,7 @@ public class InputFile extends InOutFile {
 					e.printStackTrace();
 				}
 				finally {
-					System.out.println("Lecture de la ligne " + getCurrentLine() + " terminée, return inc");
+					System.out.println("Lecture de la ligne " + getCurrentLine() + " terminée, return inc"); // TODO : To be removed once testing done
 
 					incrLine();
 
@@ -60,22 +60,24 @@ public class InputFile extends InOutFile {
 		return (getLength() == getCurrentLine());
 	}
 	
-	private String[][] head;
+	private String[][] headFile;
 
-	public String[][] getHead() {
-		return head;
+	public String[][] getHeadFile() {
+		return headFile;
 	}
 
 
 	public void readHead() {
 		
-		head = new String[linesToCopy][];
+		headFile = new String[linesToCopy][];
 		for (int i = 0; i < linesToCopy; i++) {
-			System.out.println("readLine() numéro " + i + " sur " + (linesToCopy - 1) + " inc");
-			head[i] = readLine();
-			System.out.println("head[" + i + "] chargé");
+			System.out.println("readLine() numéro " + i + " sur " + (linesToCopy - 1) + " inc"); // TODO : To be removed once testing done
+			headFile[i] = readLine();
+			System.out.println("head[" + i + "] chargé"); // TODO : To be removed once testing done
 		}
 	}
+	
+	
 	
 
 }

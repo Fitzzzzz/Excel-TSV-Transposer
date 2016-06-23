@@ -10,8 +10,8 @@ public class OutputFile extends InOutFile {
 	public OutputFile(String name) {
 		super(name);
 	}
-
-	public void writeLine(String[] line) {
+	
+	public void writeFristLine(String[] line) {
 		
 		try (FileWriter fw = new FileWriter(getName());
 				CSVWriter writer = new CSVWriter(fw, '\t'))
@@ -26,11 +26,35 @@ public class OutputFile extends InOutFile {
 		}
 		
 	}
+
+	public void writeLine(String[] line) {
+		
+		try (FileWriter fw = new FileWriter(getName(), true);
+				CSVWriter writer = new CSVWriter(fw, '\t'))
+		{
+			writer.writeNext(line);
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		finally {
+			incrLine();
+		}
+		
+	}
 	
-//	public void writeHead(String[][] head) {
-//		for (String[] l : head) {
-//			
-//		}
-//	}
+	public void writeHead(String[][] head) {
+		int i = 0;
+		for (String[] l : head) {
+			if (i != 0) {
+				writeLine(l);
+			}
+			else {
+				writeFristLine(l);
+			}
+			i++;
+		}
+	}
+
 	 
 }
