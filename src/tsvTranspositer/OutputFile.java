@@ -14,7 +14,7 @@ public class OutputFile extends InOutFile {
 	public void writeFirstLine(String[] line) {
 		
 		try (FileWriter fw = new FileWriter(getName());
-				CSVWriter writer = new CSVWriter(fw, '\t'))
+				CSVWriter writer = new CSVWriter(fw, '\t', CSVWriter.NO_QUOTE_CHARACTER))
 		{
 			writer.writeNext(line);
 		}
@@ -30,7 +30,7 @@ public class OutputFile extends InOutFile {
 	public void writeLine(String[] line) {
 		
 		try (FileWriter fw = new FileWriter(getName(), true);
-				CSVWriter writer = new CSVWriter(fw, '\t'))
+				CSVWriter writer = new CSVWriter(fw, '\t', CSVWriter.NO_QUOTE_CHARACTER))
 		{
 			writer.writeNext(line);
 		}

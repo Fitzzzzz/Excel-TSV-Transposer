@@ -7,9 +7,11 @@ public class SmallTest {
 
 	public static void main(String[] args) {
 
-		String inputFile = "exempleProPerso1.tsv"; // TODO : nom du fichier d'entrée
+		long startTime = System.nanoTime();
 		
-		String outputFile = "resultatProPerso1.tsv"; // TODO : nom du fichier de sortie
+		String inputFile = "exempleVraiTsv.tsv"; // TODO : nom du fichier d'entrée
+		
+		String outputFile = "resultatVraiTsv.tsv"; // TODO : nom du fichier de sortie
 		
 		int linesToCopy = 0; // TODO : nombre de lignes ("header") en début de fichier à recopier
 		
@@ -35,7 +37,8 @@ public class SmallTest {
 		StringArray years = new StringArray(handler.getYears()); // TODO : TBR
 		years.print(); // TODO : TBR
 		
-		int i = 1; // TODO : TBR
+		int i = 2; // TODO : TBR
+		
 		
 		while (!ex1.isAllDone()) {
 			
@@ -44,9 +47,14 @@ public class SmallTest {
 			CommonLine cl1 = new CommonLine(ex1.readLine(), handler.getYears(), serieNb);
 			
 			StringArray2D l12D = new StringArray2D(cl1.exportOutputLines()); // TODO : TBR
-			l12D.print(); // TODO : TBR
+			// l12D.print(); // TODO : TBR
 			
 			ex2.writeAll(cl1.exportOutputLines());
+			
+			i++;
 		}
+		long endTime = System.nanoTime();
+		long duration = (endTime - startTime);
+		System.out.println(duration);
 	}
 }

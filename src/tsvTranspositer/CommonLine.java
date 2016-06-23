@@ -25,10 +25,10 @@ public class CommonLine {
 	}
 	
 	public String[][] exportOutputLines() {
-		System.out.println("serieRowsNb de CommonLine vaut " + serieRowsNb);
+		// System.out.println("serieRowsNb de CommonLine vaut " + serieRowsNb); // TODO : TBR 
 		outputLines = new String[years.length][serieRowsNb + 2]; // TODO : TBC : pour handle monthly? Prob not, years will contain months too? Years [][]
 		for (int i = 0; i < years.length; i++) {
-			System.out.println("Remplissage de la ligne out " + (i+1)); // TODO : TBR
+			// System.out.println("Remplissage de la ligne out " + (i+1)); // TODO : TBR
 			System.arraycopy(serieRows, 0, outputLines[i], 0, serieRowsNb);
 			outputLines[i][serieRowsNb] = years[i];
 			outputLines[i][serieRowsNb + 1] = line[serieRowsNb + i];
