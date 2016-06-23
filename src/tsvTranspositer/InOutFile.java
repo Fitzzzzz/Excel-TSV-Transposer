@@ -38,6 +38,11 @@ private String name;
 		this.name = name;
 		this.currentLine = 1;
 	}
+	
+public InOutFile(String name, int lineToStart) {
+		this.name = name;
+		this.currentLine = lineToStart;
+	}
 	public void incrLine() {
 		setCurrentLine(getCurrentLine() + 1);
 	}
