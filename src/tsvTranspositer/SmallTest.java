@@ -22,10 +22,16 @@ public class SmallTest {
 		StringArray years = new StringArray(handler.getYears()); // TODO : TBR
 		years.print(); // TODO : TBR
 		
-		CommonLine cl1 = new CommonLine(ex1.readLine(), handler.getYears(), 3);
 		
-		StringArray2D l12D = new StringArray2D(cl1.exportOutputLines()); // TODO : TBR
-		l12D.print();
+		
+		while (!ex1.isAllDone()) {
+			
+			CommonLine cl1 = new CommonLine(ex1.readLine(), handler.getYears(), 3);
+			
+			StringArray2D l12D = new StringArray2D(cl1.exportOutputLines()); // TODO : TBR
+			l12D.print(); // TODO : TBR
+			
+			ex2.writeAll(cl1.exportOutputLines());
+		}
 	}
-
 }

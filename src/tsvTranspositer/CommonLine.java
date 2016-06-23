@@ -20,7 +20,7 @@ public class CommonLine {
 	private void initSerieRows() {
 		
 		serieRows = new String[serieRowsNb];
-		System.arraycopy(line, 0, serieRows, 0, serieRowsNb);  // Bugging for some reason
+		System.arraycopy(line, 0, serieRows, 0, serieRowsNb);
 		
 	}
 	

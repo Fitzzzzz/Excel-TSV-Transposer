@@ -43,7 +43,7 @@ public class OutputFile extends InOutFile {
 		
 	}
 	
-	public void writeHead(String[][] head) {
+	public void writeHead(String[][] head) { // TODO : TBC to classic writeALL?
 		int i = 0;
 		for (String[] l : head) {
 			if (i != 0) {
@@ -53,6 +53,12 @@ public class OutputFile extends InOutFile {
 				writeFirstLine(l);
 			}
 			i++;
+		}
+	}
+	
+	public void writeAll(String[][] lines) { // TODO : TBC to classic writeALL? would be way better!
+		for (String[] l : lines) {
+			writeLine(l);
 		}
 	}
 	

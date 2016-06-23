@@ -9,16 +9,24 @@ public class InputFile extends InOutFile {
 
 	public InputFile(String name) {
 		super(name);
+		allDone = false;
 	}
 	
 	public InputFile(String name, int linesToCopy) {
 		super(name);
+		allDone = false;
 		this.linesToCopy = linesToCopy;
 	}
 	
 	
 	
 	private int linesToCopy;
+
+	private boolean allDone;
+	
+	public boolean isAllDone() {
+		return allDone;
+	}
 
 	public int getLinesToCopyNb() {
 		return linesToCopy;
@@ -38,6 +46,9 @@ public class InputFile extends InOutFile {
 		
 				{
 					row = reader.readNext();
+					if (reader.readNext() == null) {
+						allDone = true;
+					}
 				}
 		
 				catch (IOException e) {
@@ -45,7 +56,7 @@ public class InputFile extends InOutFile {
 				}
 				finally {
 					System.out.println("Lecture de la ligne " + getCurrentLine() + " terminée, return inc"); // TODO : To be removed once testing done
-
+					
 					incrLine();
 
 					return row;
@@ -54,9 +65,6 @@ public class InputFile extends InOutFile {
 	}
 	
 
-	public boolean allDone() { 	// TODO To rework, has to detect it alone, without parameter 
-		return (getLength() == getCurrentLine());
-	}
 	
 	private String[][] headFile;
 
