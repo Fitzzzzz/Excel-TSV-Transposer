@@ -32,10 +32,13 @@ public class StringArray {
 		return line;
 	}
 	
-	public void print() {
-		System.out.print(toString());
-	}
 	
+	
+	public void print() {
+		System.out.println(toString());
+	}
+
+
 	
 	
 }
