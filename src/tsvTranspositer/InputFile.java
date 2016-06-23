@@ -11,15 +11,13 @@ public class InputFile extends InOutFile {
 		super(name);
 	}
 	
-	public InputFile(String name, int lineToStart) {
-		super(name, lineToStart);
-	}
-	
-	public InputFile(String name, int lineToStart, int linesToCopy) {
-		super(name, lineToStart);
+	public InputFile(String name, int linesToCopy) {
+		super(name);
 		this.linesToCopy = linesToCopy;
 	}
-
+	
+	
+	
 	private int linesToCopy;
 
 	public int getLinesToCopyNb() {
@@ -30,7 +28,7 @@ public class InputFile extends InOutFile {
 		this.linesToCopy = linesToCopy;
 	}
 	
-	@SuppressWarnings("finally")
+	@SuppressWarnings("finally") // TODO : TBR ? 
 	public String[] readLine() {
 		
 		System.out.println("Tentative de lecture de la ligne " + getCurrentLine()); // TODO : To be removed once testing done
@@ -55,8 +53,8 @@ public class InputFile extends InOutFile {
 		
 	}
 	
-	// To rework, has to detect it alone, without parameter 
-	public boolean allDone() {
+
+	public boolean allDone() { 	// TODO To rework, has to detect it alone, without parameter 
 		return (getLength() == getCurrentLine());
 	}
 	
@@ -76,6 +74,7 @@ public class InputFile extends InOutFile {
 			System.out.println("head[" + i + "] chargé"); // TODO : To be removed once testing done
 		}
 	}
+
 	
 	
 	

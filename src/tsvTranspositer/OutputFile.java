@@ -11,7 +11,7 @@ public class OutputFile extends InOutFile {
 		super(name);
 	}
 	
-	public void writeFristLine(String[] line) {
+	public void writeFirstLine(String[] line) {
 		
 		try (FileWriter fw = new FileWriter(getName());
 				CSVWriter writer = new CSVWriter(fw, '\t'))
@@ -50,11 +50,14 @@ public class OutputFile extends InOutFile {
 				writeLine(l);
 			}
 			else {
-				writeFristLine(l);
+				writeFirstLine(l);
 			}
 			i++;
 		}
 	}
+	
+	private String valueName = "Nombre"; // TODO : TBC, argument, constant?
+	private String[] timeName = {"Année"}; // TODO : TBC : Tableau à deux cases si mensuel!
 
 	 
 }

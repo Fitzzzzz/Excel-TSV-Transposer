@@ -7,15 +7,17 @@ public class SmallTest {
 
 	public static void main(String[] args) {
 
-		InputFile ex1 = new InputFile("exemplePerso1.tsv", 1, 3);
+		InputFile ex1 = new InputFile("exemplePerso1.tsv", 2);
 		ex1.readHead();
-		StringArray2D head = new StringArray2D(ex1.getHeadFile());
-		head.print();
+		StringArray2D head = new StringArray2D(ex1.getHeadFile()); // TODO : TBR
+		head.print(); // TODO : TBR
 		
 		OutputFile ex2 = new OutputFile("resultat1.tsv");
 		
 		ex2.writeHead(ex1.getHeadFile());
-
+		
+		HeadOfValuesHandler handler = new HeadOfValuesHandler(ex1.readLine(), "Sold", "Year", 3);
+		ex2.writeLine(handler.createOutputHOV());
 		
 		
 	}
