@@ -9,10 +9,10 @@ public class HeadOfValuesHandler {
 	private String[] timeName;
 	
 	private int serieRowsNb;
-	private String[] Years;
+	private String[] years;
 	
 	public String[] getYears() {
-		return Years;
+		return years;
 	}
 
 	public HeadOfValuesHandler(String[] inputHOV, String valueName, String[] timeName, int serieRowsNb) {
@@ -52,9 +52,9 @@ public class HeadOfValuesHandler {
 		}
 	}
 	private	void getYearsArray() {
-		Years = new String[inputHOV.length - serieRowsNb];
-		for (int i = 0; i < Years.length; i++) {
-			Years[i] = inputHOV[i + serieRowsNb];
+		years = new String[inputHOV.length - serieRowsNb];
+		for (int i = 0; i < years.length; i++) {
+			years[i] = inputHOV[i + serieRowsNb];
 		}
 	}
 	private void addColomnHeaders() {
