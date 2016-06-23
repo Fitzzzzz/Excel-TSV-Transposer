@@ -19,6 +19,9 @@ public class SmallTest {
 		HeadOfValuesHandler handler = new HeadOfValuesHandler(ex1.readLine(), "Sold", "Year", 3);
 		ex2.writeLine(handler.createOutputHOV());
 		
+		StringArray years = new StringArray(handler.getYears()); // TODO : TBR
+		years.print(); // TODO : TBR
+		
 		
 	}
 

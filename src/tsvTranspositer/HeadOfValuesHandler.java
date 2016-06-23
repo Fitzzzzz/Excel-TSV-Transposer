@@ -8,16 +8,20 @@ public class HeadOfValuesHandler {
 	private String valueName;
 	private String[] timeName;
 	
-	int serieRowsNb;
+	private int serieRowsNb;
+	private String[] Years;
 	
-	
+	public String[] getYears() {
+		return Years;
+	}
+
 	public HeadOfValuesHandler(String[] inputHOV, String valueName, String[] timeName, int serieRowsNb) {
 		super();
 		this.inputHOV = inputHOV;
 		this.valueName = valueName;
 		this.timeName = timeName;
 		this.serieRowsNb = serieRowsNb;
-	}	
+	}
 	
 	public HeadOfValuesHandler(String[] inputHOV, String valueName, String timeName, int serieRowsNb) {
 		super();
@@ -32,6 +36,7 @@ public class HeadOfValuesHandler {
 	
 		initOutputHOV();
 		addSerieRows();
+		getYearsArray();
 		addColomnHeaders();
 		
 		return outputHOV;
@@ -46,7 +51,12 @@ public class HeadOfValuesHandler {
 			outputHOV[i] = inputHOV[i];
 		}
 	}
-
+	private	void getYearsArray() {
+		Years = new String[inputHOV.length - serieRowsNb];
+		for (int i = 0; i < Years.length; i++) {
+			Years[i] = inputHOV[i + serieRowsNb];
+		}
+	}
 	private void addColomnHeaders() {
 
 		System.arraycopy(timeName, 0, outputHOV, serieRowsNb, timeName.length);
