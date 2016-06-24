@@ -1,8 +1,5 @@
 package tsvTranspositer;
 
-import java.io.FileWriter; // TODO : useless now?
-import java.io.IOException; // TODO : useless now?
-
 import com.opencsv.CSVWriter;
 
 public class OutputFile extends InOutFile {
@@ -62,9 +59,5 @@ public class OutputFile extends InOutFile {
 
 
 	}
-	
-	private String valueName = "Nombre"; // TODO : TBC, argument, constant?
-	private String[] timeName = {"Année"}; // TODO : TBC : Tableau à deux cases si mensuel!
-
 	 
 }

@@ -1,11 +1,11 @@
 package tsvTranspositer;
 
-import java.io.FileReader;
+
 import java.io.IOException;
 
 import com.opencsv.CSVReader;
 
-import testTools.StringArray;
+import testTools.StringArray; // TODO : TBR
 
 public class InputFile extends InOutFile {
 
@@ -50,12 +50,15 @@ public class InputFile extends InOutFile {
 	public String[] readLine() throws IOException {
 		
 //		System.out.println("Tentative de lecture de la ligne " + getCurrentLine()); // TODO : TBR
+		
 		String[] row = null;
 
 		if ((row = reader.readNext()) == null) {
 			allDone = true;
 		}
+		
 //		System.out.println("On est ligne " + getCurrentLine() +" et on a fini : " + allDone); // TODO : TBR
+		
 		incrLine(); // TODO : useless now?
 		return row;
 				
