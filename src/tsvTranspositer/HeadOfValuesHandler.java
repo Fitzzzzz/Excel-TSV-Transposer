@@ -5,9 +5,6 @@ public class HeadOfValuesHandler {
 	private String[] inputHOV;
 	private String[] outputHOV;
 	
-	private String valueName;
-	private String[] timeName;
-	
 	private int serieRowsNb;
 	private String[] years;
 	
@@ -15,20 +12,9 @@ public class HeadOfValuesHandler {
 		return years;
 	}
 
-	public HeadOfValuesHandler(String[] inputHOV, String valueName, String[] timeName, int serieRowsNb) {
+	public HeadOfValuesHandler(String[] inputHOV, int serieRowsNb) {
 		super();
 		this.inputHOV = inputHOV;
-		this.valueName = valueName;
-		this.timeName = timeName;
-		this.serieRowsNb = serieRowsNb;
-	}
-	
-	public HeadOfValuesHandler(String[] inputHOV, String valueName, String timeName, int serieRowsNb) {
-		super();
-		this.inputHOV = inputHOV;
-		this.valueName = valueName;
-		String[] timeNameArray = {timeName};
-		this.timeName = timeNameArray;
 		this.serieRowsNb = serieRowsNb;
 	}
 	
@@ -58,12 +44,9 @@ public class HeadOfValuesHandler {
 		}
 	}
 	private void addColomnHeaders() {
-
-		System.arraycopy(timeName, 0, outputHOV, serieRowsNb, timeName.length);
 		
-//		System.out.println("timeName added"); // TODO : TBR
-
-		outputHOV[serieRowsNb + timeName.length] = valueName;
+		outputHOV[serieRowsNb] = "year"; // TODO : TBC to work for Year/Month
+		outputHOV[serieRowsNb + 1] = "value";
 
 	}
 	

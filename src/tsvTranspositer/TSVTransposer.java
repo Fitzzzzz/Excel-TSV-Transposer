@@ -24,10 +24,7 @@ public class TSVTransposer {
 		String outputFile = null; // TODO : nom du fichier de sortie
 		int serieNb = 1 ; // TODO : nombre de colonnes correspondant (nombre de colonnes avant les données : elles seront recopiées)
 		int linesToCopy = 0; // TODO : nombre de lignes ("header") en début de fichier à recopier		
-		
-		String valueName = "quantity" ; // TODO : nom de la colonne donnant les quantités
-		String periodName = "period" ; // TODO : nom de la colonne donnant les périodes
-		
+				
 		try {
 			switch (args.length) {
 			case 0:
@@ -53,28 +50,11 @@ public class TSVTransposer {
 				serieNb = Integer.parseInt(args[2]);
 				linesToCopy = Integer.parseInt(args[3]);
 				break;
-			case 5:
-				inputFile = args[0];
-				outputFile = args[1];
-				serieNb = Integer.parseInt(args[2]);
-				linesToCopy = Integer.parseInt(args[3]);
-				valueName = args[4];
-				break;
-			case 6:
-				inputFile = args[0];
-				outputFile = args[1];
-				serieNb = Integer.parseInt(args[2]);
-				linesToCopy = Integer.parseInt(args[3]);
-				valueName = args[4];
-				periodName = args[5];
-				break;
 			default:
 				inputFile = args[0];
 				outputFile = args[1];
 				serieNb = Integer.parseInt(args[2]);
 				linesToCopy = Integer.parseInt(args[3]);
-				valueName = args[4];
-				periodName = args[5];
 				throw new OutOfBordersArgsException();
 					
 			}
@@ -103,7 +83,7 @@ public class TSVTransposer {
 				
 			ex2.writeHead(ex1.getHeadFile());
 				
-			HeadOfValuesHandler handler = new HeadOfValuesHandler(ex1.readLine(), valueName, periodName, serieNb);
+			HeadOfValuesHandler handler = new HeadOfValuesHandler(ex1.readLine(), serieNb);
 			ex2.writeLine(handler.createOutputHOV());
 				
 //			StringArray years = new StringArray(handler.getYears()); // TODO : TBR
