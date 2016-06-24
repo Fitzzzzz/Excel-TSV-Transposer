@@ -60,7 +60,7 @@ public class HeadOfValuesHandler {
 	private void addColomnHeaders() {
 
 		System.arraycopy(timeName, 0, outputHOV, serieRowsNb, timeName.length);
-		System.out.println("timeName added"); // TODO : TBR
+//		System.out.println("timeName added"); // TODO : TBR
 		outputHOV[serieRowsNb + timeName.length] = valueName;
 
 	}

@@ -49,13 +49,13 @@ public class InputFile extends InOutFile {
 
 	public String[] readLine() throws IOException {
 		
-		System.out.println("Tentative de lecture de la ligne " + getCurrentLine()); // TODO : To be removed once testing done
+//		System.out.println("Tentative de lecture de la ligne " + getCurrentLine()); // TODO : TBR
 		String[] row = null;
 
 		if ((row = reader.readNext()) == null) {
 			allDone = true;
 		}
-		System.out.println("On est ligne " + getCurrentLine() +" et on a fini : " + allDone); // TODO : TBR
+//		System.out.println("On est ligne " + getCurrentLine() +" et on a fini : " + allDone); // TODO : TBR
 		incrLine(); // TODO : useless now?
 		return row;
 				
@@ -75,12 +75,15 @@ public class InputFile extends InOutFile {
 		
 		headFile = new String[linesToCopy][];
 		for (int i = 0; i < linesToCopy; i++) {
-			System.out.println("readLine() numéro " + i + " sur " + (linesToCopy - 1) + " inc"); // TODO : To be removed once testing done
+
+//			System.out.println("readLine() numéro " + i + " sur " + (linesToCopy - 1) + " inc"); // TODO : TBR
+			
 			headFile[i] = readLine();
-			StringArray head = new StringArray(headFile[i]);// TODO : To be removed
-			System.out.println("headLine print inc");// TODO : To be removed
-			head.print();// TODO : To be removed
-			System.out.println("head[" + i + "] chargé"); // TODO : To be removed once testing done
+
+//			StringArray head = new StringArray(headFile[i]);// TODO : TBR
+//			System.out.println("headLine print inc");// TODO : TBR
+//			head.print();// TODO : TBR
+//			System.out.println("head[" + i + "] chargé"); // TODO : TBR
 		}
 	}
 

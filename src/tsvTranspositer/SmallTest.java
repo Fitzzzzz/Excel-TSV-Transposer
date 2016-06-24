@@ -7,14 +7,14 @@ import java.io.IOException;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
-import testTools.StringArray; // TODO : To be removed once testing done
-import testTools.StringArray2D; // TODO : To be removed once testing done
+import testTools.StringArray; // TODO : TBR
+import testTools.StringArray2D; // TODO : TBR
 
 public class SmallTest {
 
 	public static void main(String[] args) {
 
-		long startTime = System.nanoTime();
+		long startTime = System.nanoTime(); // TODO : TBR
 		
 		String inputFile = "exempleVraiTsv.tsv"; // TODO : nom du fichier d'entrée
 		
@@ -41,8 +41,8 @@ public class SmallTest {
 			ex1.setReader(reader);
 			ex2.setWriter(writer);
 			ex1.readHead();
-			StringArray2D head = new StringArray2D(ex1.getHeadFile()); // TODO : TBR
-			head.print(); // TODO : TBR
+//			StringArray2D head = new StringArray2D(ex1.getHeadFile()); // TODO : TBR
+//			head.print(); // TODO : TBR
 			
 		
 			
@@ -51,28 +51,28 @@ public class SmallTest {
 			HeadOfValuesHandler handler = new HeadOfValuesHandler(ex1.readLine(), valueName, periodName, serieNb);
 			ex2.writeLine(handler.createOutputHOV());
 			
-			StringArray years = new StringArray(handler.getYears()); // TODO : TBR
-			years.print(); // TODO : TBR
+//			StringArray years = new StringArray(handler.getYears()); // TODO : TBR
+//			years.print(); // TODO : TBR
 
-			int i = 2; // TODO : TBR
+//			int i = 2; // TODO : TBR
 			
 			String[] row;
 			
 			while (!ex1.isAllDone()) { // TODO : ugly test if (!ex1.isAllDone) and might be expensive
 				
-				System.out.println("Gestion de la ligne " + i); // TODO : TBR
+//				System.out.println("Gestion de la ligne " + i); // TODO : TBR
 				
 				
 				row = ex1.readLine();
 				if (!ex1.isAllDone()) {
 					CommonLine cl1 = new CommonLine(row, handler.getYears(), serieNb);
 					
-					StringArray2D l12D = new StringArray2D(cl1.exportOutputLines()); // TODO : TBR
-					l12D.print(); // TODO : TBR
+//					StringArray2D l12D = new StringArray2D(cl1.exportOutputLines()); // TODO : TBR
+//					l12D.print(); // TODO : TBR
 					
 					ex2.writeAll(cl1.exportOutputLines());
 					
-					i++; // TODO : TBR
+//					i++; // TODO : TBR
 				}
 				
 			}
@@ -82,8 +82,8 @@ public class SmallTest {
 			e.printStackTrace();
 		}
 		
-		long endTime = System.nanoTime();
-		long duration = (endTime - startTime);
-		System.out.println(duration);
+		long endTime = System.nanoTime(); // TODO : TBR
+		long duration = (endTime - startTime); // TODO : TBR
+		System.out.println(duration); // TODO : TBR
 	}
 }
