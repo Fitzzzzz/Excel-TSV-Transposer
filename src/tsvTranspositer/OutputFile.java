@@ -1,46 +1,41 @@
 package tsvTranspositer;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.FileWriter; // TODO : useless now?
+import java.io.IOException; // TODO : useless now?
 
 import com.opencsv.CSVWriter;
 
 public class OutputFile extends InOutFile {
 
+	private CSVWriter writer;
+	
+	public CSVWriter getWriter() {
+		return writer;
+	}
+
+	public void setWriter(CSVWriter writer) {
+		this.writer = writer;
+	}
+
 	public OutputFile(String name) {
 		super(name);
 	}
 	
-	public void writeFirstLine(String[] line) {
+	public void writeFirstLine(String[] line) { // TODO : useless now?
 		
-		try (FileWriter fw = new FileWriter(getName());
-				CSVWriter writer = new CSVWriter(fw, '\t', CSVWriter.NO_QUOTE_CHARACTER))
-		{
-			writer.writeNext(line);
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally {
-			incrLine();
-		}
+		
+		writer.writeNext(line);
+		incrLine(); // TODO : useless now?
 		
 	}
 
 	public void writeLine(String[] line) {
 		
-		try (FileWriter fw = new FileWriter(getName(), true);
-				CSVWriter writer = new CSVWriter(fw, '\t', CSVWriter.NO_QUOTE_CHARACTER))
-		{
+
 			writer.writeNext(line);
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-		finally {
-			incrLine();
-		}
-		
+
+			incrLine(); // TODO : useless now?
+
 	}
 	
 	public void writeHead(String[][] head) { // TODO : TBC to classic writeALL?
@@ -59,17 +54,12 @@ public class OutputFile extends InOutFile {
 	public void writeAll(String[][] lines) { // TODO : TBC to classic writeALL? would be way better!
 		
 		
-		try (	FileWriter fw = new FileWriter(getName(), true);
-				CSVWriter writer = new CSVWriter(fw, '\t', CSVWriter.NO_QUOTE_CHARACTER))
-		{
-			for (String[] l : lines) {
-				writer.writeNext(l);
-				incrLine();
-			}
+
+		for (String[] l : lines) {
+			writer.writeNext(l);
+			incrLine();
 		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
+
 
 	}
 	
