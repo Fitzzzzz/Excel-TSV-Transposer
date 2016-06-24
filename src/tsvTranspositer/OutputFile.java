@@ -57,9 +57,20 @@ public class OutputFile extends InOutFile {
 	}
 	
 	public void writeAll(String[][] lines) { // TODO : TBC to classic writeALL? would be way better!
-		for (String[] l : lines) {
-			writeLine(l);
+		
+		
+		try (	FileWriter fw = new FileWriter(getName(), true);
+				CSVWriter writer = new CSVWriter(fw, '\t', CSVWriter.NO_QUOTE_CHARACTER))
+		{
+			for (String[] l : lines) {
+				writer.writeNext(l);
+				incrLine();
+			}
 		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 	
 	private String valueName = "Nombre"; // TODO : TBC, argument, constant?

@@ -11,7 +11,7 @@ public class SmallTest {
 		
 		String inputFile = "exempleVraiTsv.tsv"; // TODO : nom du fichier d'entrée
 		
-		String outputFile = "resultatVraiTsv.tsv"; // TODO : nom du fichier de sortie
+		String outputFile = "resultatVraiTsvData.tsv"; // TODO : nom du fichier de sortie
 		
 		int linesToCopy = 0; // TODO : nombre de lignes ("header") en début de fichier à recopier
 		
