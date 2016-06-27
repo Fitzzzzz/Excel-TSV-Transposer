@@ -8,8 +8,8 @@ import java.io.IOException;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
-import testTools.StringArray; // TODO : TBR
-import testTools.StringArray2D; // TODO : TBR
+//import testTools.StringArray; // TODO : TBR
+//import testTools.StringArray2D; // TODO : TBR
 import tsvExceptions.ArgsExceptions;
 import tsvExceptions.EmptyArgsException;
 import tsvExceptions.OutOfBordersArgsException;
@@ -92,24 +92,49 @@ public class TSVTransposer {
 //			int i = 2; // TODO : TBR
 				
 			String[] row;
+			CommonLine cl1;	
+			if (handler.isMonthly()) {
 				
-			while (!ex1.isAllDone()) { // TODO : ugly test if (!ex1.isAllDone) and might be expensive
+				while (!ex1.isAllDone()) { // TODO : ugly test if (!ex1.isAllDone) and might be expensive
 					
-//				System.out.println("Gestion de la ligne " + i); // TODO : TBR
-								
-				row = ex1.readLine();
-				if (!ex1.isAllDone()) {
-					CommonLine cl1 = new CommonLine(row, handler.getYears(), serieNb);
+//					System.out.println("Gestion de la ligne " + i); // TODO : TBR
+									
+					row = ex1.readLine();
+					if (!ex1.isAllDone()) {
+						cl1 = new CommonLine(row, handler.getYears(), handler.getMonths(), serieNb);
+							
+//						StringArray2D l12D = new StringArray2D(cl1.exportOutputLines()); // TODO : TBR
+//						l12D.print(); // TODO : TBR
+							
+						ex2.writeAll(cl1.exportOutputLines());
+							
+//						i++; // TODO : TBR
+					}
 						
-//					StringArray2D l12D = new StringArray2D(cl1.exportOutputLines()); // TODO : TBR
-//					l12D.print(); // TODO : TBR
-						
-					ex2.writeAll(cl1.exportOutputLines());
-						
-//					i++; // TODO : TBR
 				}
-					
 			}
+			
+			else {
+				
+				while (!ex1.isAllDone()) { // TODO : ugly test if (!ex1.isAllDone) and might be expensive
+					
+//					System.out.println("Gestion de la ligne " + i); // TODO : TBR
+									
+					row = ex1.readLine();
+					if (!ex1.isAllDone()) {
+						cl1 = new CommonLine(row, handler.getYears(), serieNb);
+							
+//						StringArray2D l12D = new StringArray2D(cl1.exportOutputLines()); // TODO : TBR
+//						l12D.print(); // TODO : TBR
+							
+						ex2.writeAll(cl1.exportOutputLines());
+							
+//						i++; // TODO : TBR
+					}
+						
+				}
+			}
+			
 				
 		}
 		catch (FileNotFoundException f) {
