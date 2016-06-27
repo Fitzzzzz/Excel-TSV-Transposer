@@ -25,6 +25,7 @@ public class TSVTransposer {
 
 	public static void main(String[] args) throws ArgsExceptions {
 
+		// Boolean set to true while everything is good
 		Boolean everythingOk = true;
 		
 		String inputFile = null; // Name of the entry file to be transposed.
@@ -133,7 +134,7 @@ public class TSVTransposer {
 				}		
 			}
 			catch (FileNotFoundException f) {
-				System.out.println(inputFile + " est introuvable. Cancelling...");
+				System.out.println(inputFile + " can't be found. Cancelling...");
 			}
 			catch (IOException e) {
 				System.out.println("Unknown exception raised.");

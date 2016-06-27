@@ -3,7 +3,7 @@ package tsvTranspositer;
 /**
  * Handles a regular line (often name of the product and value for every period) of the input file, 
  * transforming it into multiple lines for the output file meaning one line for each period with
- * the cases before the values repeated each line. For each regular line of the input, a Commonline is constructed.
+ * the cases before the values repeated each line. For each regular line of the input, a CommonLine is constructed.
  *  
  * @author hamme
  *
@@ -76,8 +76,8 @@ public class CommonLine {
 
 	/**
 	 * Called by the constructors to fill serieRows adequately with the first cases of line.
-	 * @see Commonline#serieRows
-	 * @see Commonline#line
+	 * @see CommonLine#serieRows
+	 * @see CommonLine#line
 	 */
 	private void initSerieRows() {
 		
@@ -92,9 +92,9 @@ public class CommonLine {
 	 * - the month (if monthly)
 	 * - the value
 	 * @return The 2D array that will be written in the OutPutFile corresponding to ONE line from the inputFile
-	 * @see Commonline#outputLines
-	 * @see Commonline#years
-	 * @see Commonline#months
+	 * @see CommonLine#outputLines
+	 * @see CommonLine#years
+	 * @see CommonLine#months
 	 */
 	public String[][] exportOutputLines() {
 		
