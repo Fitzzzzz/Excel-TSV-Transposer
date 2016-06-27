@@ -35,7 +35,7 @@ public class InOutFile {
 	/**
 	 * Sets the name of the file and the current line to 1.
 	 * @param name Name of the file.
-	 * @see currentLine
+	 * @see InOutFile#currentLine
 	 */
 	public InOutFile(String name) {
 		this.name = name;
@@ -44,7 +44,7 @@ public class InOutFile {
 	
 	/**
 	 * Increments the current line. Called after each readNext() or writeNext().
-	 * @see currentLine
+	 * @see InOutFile#currentLine
 	 */
 	public void incrLine() {
 

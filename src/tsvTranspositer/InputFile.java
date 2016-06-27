@@ -70,7 +70,7 @@ public class InputFile extends InOutFile {
 	 * Updates allDone to true if the line is empty (EOF).
 	 * @return the next line in form of a String[].
 	 * @throws IOException if bad things happen during the read. Shouldn't happen in the mains current state.
-	 * @see allDone
+	 * @see InputFile#allDone
 	 */
 	public String[] readLine() throws IOException {
 		
@@ -87,7 +87,7 @@ public class InputFile extends InOutFile {
 	/**
 	 * A two dimensional array that contains the head of the file (the lines that should be copy/pasted).
 	 * The lines are sorted in their natural order. Their number is the number of lines to copy.
-	 * @see linesToCopy
+	 * @see InputFile#linesToCopy
 	 */
 	private String[][] headFile;
 
@@ -98,9 +98,9 @@ public class InputFile extends InOutFile {
 	/**
 	 * Reads the head of the file (its number of lines is determined by the number of lines to copy) and stores it in headFile.
 	 * @throws IOException if bad things happen readLine().
-	 * @see readLine
-	 * @see headFile
-	 * @see linesToCopy
+	 * @see InputFile#readLine()
+	 * @see InputFile#headFile
+	 * @see InputFile#linesToCopy
 	 */
 	public void readHead() throws IOException {
 		

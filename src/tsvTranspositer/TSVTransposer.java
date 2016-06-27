@@ -20,7 +20,6 @@ import tsvExceptions.OutOfBordersArgsException;
  * -NameOfInputFile -NameOfOutPutFile -serieNb -linesToCopy.
  * The strict minimum of arguments required is 1 (Name of the input file).
  * @author hamme
-
  */
 public class TSVTransposer {
 
@@ -119,7 +118,7 @@ public class TSVTransposer {
 						}	
 					}
 				}
-				// If the period is annualy
+				// If the period is yearly
 				else {
 					
 					while (!ex1.isAllDone()) { 

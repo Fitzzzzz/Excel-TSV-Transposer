@@ -33,7 +33,7 @@ public class HeadOfValuesHandler {
 	/**
 	 * Contains all the months for which data is written in the input file 
 	 * in case the data are written per month. Is set to null if not yearly.
-	 * @see isMonthly
+	 * @see HeadOfValuesHandler#monthly
 	 */
 	private String[] months;
 	
@@ -69,7 +69,7 @@ public class HeadOfValuesHandler {
 	 * Constructor. It checks directly if the data is sorted monthly or yearly.
 	 * @param inputHOV The first line as it is in the input file.
 	 * @param serieRowsNb The number of lines before the real data.
-	 * @see serieRowsNb
+	 * @see HeadOfValuesHandler#serieRowsNb
 	 */
 	public HeadOfValuesHandler(String[] inputHOV, int serieRowsNb) {
 		super();
@@ -81,7 +81,7 @@ public class HeadOfValuesHandler {
 	 * Checks if the data are displayed monthly or yearly thanks to a match test 
 	 * between the first period in the file and the regex of monthly periods.
 	 * @return a boolean true if the data are monthly displayed. False if yearly.
-	 * @see regex
+	 * @see HeadOfValuesHandler#regex
 	 */
 	public boolean checkMonthly() {
 	
@@ -92,10 +92,10 @@ public class HeadOfValuesHandler {
 	/**
 	 * Creates the first line (HOV) for the output file.
 	 * @return the first line of the values for the output file.
-	 * @see initOutputHOV
-	 * @see addSerieRows
-	 * @see getYearsArray
-	 * @see addColumnHeaders
+	 * @see HeadOfValuesHandler#initOutputHOV
+	 * @see HeadOfValuesHandler#addSerieRows()
+	 * @see HeadOfValuesHandler#getYearsArray()
+	 * @see HeadOfValuesHandler#addColumnHeaders()
 	 */
 	public String[] createOutputHOV() {
 	
@@ -110,7 +110,7 @@ public class HeadOfValuesHandler {
 	/**
 	 * Initializes the outputHOV depending of isMonthly. In case of monthly data, 
 	 * one more column is needed to display the months.
-	 * @see monthly
+	 * @see HeadOfValuesHandler#monthly
 	 */
 	private void initOutputHOV() {
 
@@ -134,9 +134,9 @@ public class HeadOfValuesHandler {
 	/**
 	 * Stores in years all the years whose data are displayed.
 	 * If monthly, also stores the months : the strings containing year + month is separated between years and months.
-	 * @see years
-	 * @see monthly
-	 * @see months
+	 * @see HeadOfValuesHandler#years
+	 * @see HeadOfValuesHandler#monthly
+	 * @see HeadOfValuesHandler#months
 	 */
 	
 	private	void getYearsArray() {

@@ -20,7 +20,7 @@ public class CommonLine {
 	private String[] line;
 	/**
 	 * Contains all the months for which data is written in the input file in case the data are written per month. Is set to null if not yearly.
-	 * @see isMonthly
+	 * @see CommonLine#monthly
 	 */
 	private String[] months;
 	/**
@@ -76,8 +76,8 @@ public class CommonLine {
 
 	/**
 	 * Called by the constructors to fill serieRows adequately with the first cases of line.
-	 * @see serieRows
-	 * @see line
+	 * @see Commonline#serieRows
+	 * @see Commonline#line
 	 */
 	private void initSerieRows() {
 		
@@ -91,10 +91,10 @@ public class CommonLine {
 	 * - the year
 	 * - the month (if monthly)
 	 * - the value
-	 * @return
-	 * @see outputLines
-	 * @see years
-	 * @see months
+	 * @return The 2D array that will be written in the OutPutFile corresponding to ONE line from the inputFile
+	 * @see Commonline#outputLines
+	 * @see Commonline#years
+	 * @see Commonline#months
 	 */
 	public String[][] exportOutputLines() {
 		

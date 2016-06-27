@@ -46,7 +46,7 @@ public class OutputFile extends InOutFile {
 	 * Writes multiples lines in once. Number determined by the number of lines in parameter.
 	 * Can be seen as a transposition of the 2D array in parameter in the output file.
 	 * @param lines 2D array that will be written in the output file.
-	 * @see writeLine
+	 * @see OutputFile#writeLine
 	 */
 	public void write(String[][] lines) { 
 		
