@@ -14,11 +14,14 @@ import tsvExceptions.OutOfBordersArgsException;
 
 /**
  * The main. 
+ * Expected inputs : TSV files which can have some irrelevant lines at the start who would be copied (indicate number as 4th argument)
+ * A number or columns (>= 1) should indicated the serial (indicate number as 3rd argument) followed by many values from différent periods.
  * Will transpose a TSV file displayed as expected to have only one value 
  * (meaning one period) per line producing as many lines pro serial as there are periods.
  * Arguments should be displayed in this order :
  * -NameOfInputFile -NameOfOutPutFile -serieNb -linesToCopy.
  * The strict minimum of arguments required is 1 (Name of the input file).
+ * This project uses the openCSV API.
  * @author hamme
  */
 public class TSVTransposer {
