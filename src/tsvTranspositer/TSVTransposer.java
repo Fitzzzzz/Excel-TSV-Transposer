@@ -21,7 +21,7 @@ import tsvExceptions.OutOfBordersArgsException;
  * Arguments should be displayed in this order :
  * -NameOfInputFile -NameOfOutPutFile -serieNb -linesToCopy.
  * The strict minimum of arguments required is 1 (Name of the input file).
- * This project uses the openCSV API.
+ * This project uses the  a	openCSV API.
  * @author hamme
  */
 public class TSVTransposer {
@@ -106,7 +106,7 @@ public class TSVTransposer {
 				HeadOfValuesHandler handler = new HeadOfValuesHandler(ex1.readLine(), serieNb);
 				ex2.writeLine(handler.createOutputHOV());
 
-				// Each lien will be read and written (in multiple lines) one after the other.
+				// Each line will be read and written (in multiple lines) one after the other.
 				String[] row;
 				CommonLine cl1;	
 				// If the period is monthly

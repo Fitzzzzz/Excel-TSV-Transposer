@@ -152,7 +152,7 @@ public class HeadOfValuesHandler {
 			for (int i = 0; i < years.length; i++) {
 				String[] parts = inputHOV[i + serieRowsNb].split("M");
 				years[i] = parts[0];
-				months[i] = parts[1];
+				months[i] = parts[1].replace(" ", "");
 			}
 		}
 	}
