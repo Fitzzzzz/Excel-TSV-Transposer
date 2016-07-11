@@ -35,7 +35,6 @@ public class TSVTransposer {
 		String outputFile = null; // Name of the output file.
 		int serieNb = 1 ; // Number of columns before the actual values in the input file. Can be columns describing the product as well as empty columns before the values.
 		int linesToCopy = 0; // Number of lines composing the header of the file (those lines will be copy/pasted in the output)
-		int linesCounter = 0;
 		int maxLinesPerFile = 900000;
 		String[] parts = null; 
 		
@@ -149,13 +148,26 @@ public class TSVTransposer {
 				else {
 					
 					while (!ex1.isAllDone()) { 
-						
-						row = ex1.readLine();
-						if (!ex1.isAllDone()) {
-							cl1 = new CommonLine(row, handler.getYears(), serieNb);
-							
-							ex2.write(cl1.exportOutputLines());		
-						}		
+						while (ex2.getCurrentLine() <  maxLinesPerFile) {
+							row = ex1.readLine();
+							if (!ex1.isAllDone()) {
+								cl1 = new CommonLine(row, handler.getYears(), serieNb);
+								
+								ex2.write(cl1.exportOutputLines());		
+							}	
+							if (ex1.isAllDone()) {
+								break;
+							}
+						}
+						if (ex1.isAllDone()) {
+							break;
+						}
+						ex2.setCurrentLine(0);
+						numberOfFiles++;
+						fwX = new FileWriter(parts[0] + "_" + numberOfFiles + "_Transposed." + parts[1]);
+						writerX = new CSVWriter(fwX, '\t', CSVWriter.NO_QUOTE_CHARACTER);
+						ex2.setWriter(writerX);
+						ex2.writeLine(handler.createOutputHOV());
 					}
 				}		
 			}
