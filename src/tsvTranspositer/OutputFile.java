@@ -39,7 +39,6 @@ public class OutputFile extends InOutFile {
 	public void writeLine(String[] line) {
 		
 			writer.writeNext(line);
-			incrLine();
 	}
 
 	/**

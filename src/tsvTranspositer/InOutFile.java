@@ -21,6 +21,10 @@ public class InOutFile {
 	private int currentLine; 
 	
 
+	public void setCurrentLine(int currentLine) {
+		this.currentLine = currentLine;
+	}
+
 	public int getCurrentLine() {
 		return currentLine;
 	}

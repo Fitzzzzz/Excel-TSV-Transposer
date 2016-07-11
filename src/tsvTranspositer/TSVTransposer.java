@@ -15,7 +15,7 @@ import tsvExceptions.OutOfBordersArgsException;
 /**
  * The main. 
  * Expected inputs : TSV files which can have some irrelevant lines at the start who would be copied (indicate number as 4th argument)
- * A number or columns (>= 1) should indicated the serial (indicate number as 3rd argument) followed by many values from différent periods.
+ * A number or columns (>= 1) should indicated the serial (indicate number as 3rd argument) followed by many values from different periods.
  * Will transpose a TSV file displayed as expected to have only one value 
  * (meaning one period) per line producing as many lines pro serial as there are periods.
  * Arguments should be displayed in this order :
@@ -35,6 +35,9 @@ public class TSVTransposer {
 		String outputFile = null; // Name of the output file.
 		int serieNb = 1 ; // Number of columns before the actual values in the input file. Can be columns describing the product as well as empty columns before the values.
 		int linesToCopy = 0; // Number of lines composing the header of the file (those lines will be copy/pasted in the output)
+		int linesCounter = 0;
+		int maxLinesPerFile = 900000;
+		String[] parts = null; 
 		
 		/*
 		 * Handling the arguments first. 
@@ -45,7 +48,7 @@ public class TSVTransposer {
 				throw new EmptyArgsException();
 			case 1:
 				inputFile = args[0];
-				String[] parts = inputFile.split("\\.");
+				parts = inputFile.split("\\.");
 				// If no outPutFile name is given, will add "Transposed" to the inputFile Name
 				outputFile = parts[0] + "Transposed." + parts[1]; 
 				break;
@@ -109,18 +112,38 @@ public class TSVTransposer {
 				// Each line will be read and written (in multiple lines) one after the other.
 				String[] row;
 				CommonLine cl1;	
+				int numberOfFiles = 1;	
+				FileWriter fwX;
+				CSVWriter writerX;
+				
 				// If the period is monthly
+				
 				if (handler.isMonthly()) { 
 					
-					while (!ex1.isAllDone()) { 
-						
-						row = ex1.readLine();
-						if (!ex1.isAllDone()) {
-							cl1 = new CommonLine(row, handler.getYears(), handler.getMonths(), serieNb);
-								
-							ex2.write(cl1.exportOutputLines());
+					while (!ex1.isAllDone()) {
+						while (ex2.getCurrentLine() <  maxLinesPerFile) {
+							row = ex1.readLine();
+							if (!ex1.isAllDone()) {
+								cl1 = new CommonLine(row, handler.getYears(), handler.getMonths(), serieNb);
+								ex2.write(cl1.exportOutputLines());
+							}
+							if (ex1.isAllDone()) {
+								break;
+							}	
+						}
+						if (ex1.isAllDone()) {
+							break;
 						}	
+						ex2.setCurrentLine(0);
+						numberOfFiles++;
+						fwX = new FileWriter(parts[0] + "_" + numberOfFiles + "_Transposed." + parts[1]);
+						writerX = new CSVWriter(fwX, '\t', CSVWriter.NO_QUOTE_CHARACTER);
+						ex2.setWriter(writerX);
+						ex2.writeLine(handler.createOutputHOV());
 					}
+					
+					
+				
 				}
 				// If the period is yearly
 				else {
